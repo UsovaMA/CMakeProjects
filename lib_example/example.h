@@ -22,7 +22,8 @@ template <typename T>
 class ExampleClass {
     T* data;
     size_t size;
- public:
+    
+public:
     explicit ExampleClass() : data(nullptr), size(0) {}
     ExampleClass(size_t _size) {
         if (_size > INT_MAX || _size <= 0) 
