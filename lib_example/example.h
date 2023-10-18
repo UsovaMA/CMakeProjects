@@ -7,15 +7,16 @@
 #include <string>
 #include <stdexcept>
 
-/********************************* œ–»Ã≈– ‘”Õ ÷»… ****************************/
+/********************************* √è√ê√à√å√Ö√ê √î√ì√ç√ä√ñ√à√â ****************************/
 float division(int a, int b);
 /*****************************************************************************/
 
 
-/************************* œ–»Ã≈– ÿ¿¡ÀŒÕÕ€’  À¿——Œ¬ **************************/
+/************************* √è√ê√à√å√Ö√ê √ò√Ä√Å√ã√é√ç√ç√õ√ï √ä√ã√Ä√ë√ë√é√Ç **************************/
 template <typename T> class ExampleClass;
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const ExampleClass<T>& obj) noexcept;
+std::ostream& operator<<(std::ostream& out,
+ const ExampleClass<T>& obj) noexcept;
 
 template <typename T>
 class ExampleClass {
