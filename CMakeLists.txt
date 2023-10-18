@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
 # название проекта
-project(Stack)
+project(Data_Structure)
 
 # затем следует список инструкций для подключения проектов из подкаталогов
 
