@@ -7,7 +7,7 @@
 #include <string>
 #include <stdexcept>
 
-/********************************* FUNCTION EXAMPLE ****************************/
+/******************************** FUNCTION EXAMPLE ***************************/
 float division(int a, int b);
 /*****************************************************************************/
 
@@ -15,7 +15,8 @@ float division(int a, int b);
 /************************* TEMPLATE CLASSES EXAMPLE **************************/
 template <typename T> class ExampleClass;
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const ExampleClass<T>& obj) noexcept;
+std::ostream& operator<<(std::ostream& out,
+    const ExampleClass<T>& obj) noexcept;
 
 template <typename T>
 class ExampleClass {
@@ -24,7 +25,10 @@ class ExampleClass {
  public:
     ExampleClass() : data(nullptr), size(0) {}
     explicit ExampleClass(size_t _size) {
-        if (_size > INT_MAX || _size <= 0) throw std::length_error("Size must be positive value, less then MAX_INT.\n");
+        if (_size > INT_MAX || _size <= 0)
+            throw std::length_error(
+                "Size must be positive value, less then MAX_INT.\n"
+            );
         size = _size;
         data = new T[size];
     }
@@ -49,13 +53,15 @@ inline int ExampleClass<T>::getSize() const noexcept {
 
 template <typename T>
 inline void ExampleClass<T>::setValue(size_t pos, T value) {
-    if (pos >= size || pos < 0) throw std::out_of_range("Dont exist such position.\n");
+    if (pos >= size || pos < 0)
+        throw std::out_of_range("Dont exist such position.\n");
     data[pos] = value;
 }
 
 template <typename T>
 inline T ExampleClass<T>::getValue(size_t pos) const {
-    if (pos >= size || pos < 0) throw std::out_of_range("Dont exist such position.\n");
+    if (pos >= size || pos < 0)
+        throw std::out_of_range("Dont exist such position.\n");
     return data[pos];
 }
 
@@ -76,7 +82,8 @@ void ExampleClass<T>::setRandValues(int min, int max) noexcept {
 }
 
 template <typename T>
-std::ostream& operator<< <T>(std::ostream& out, const ExampleClass<T>& obj) noexcept {
+std::ostream& operator<< <T>(std::ostream& out,
+    const ExampleClass<T>& obj) noexcept {
     out << obj.toString();
     return out;
 }
