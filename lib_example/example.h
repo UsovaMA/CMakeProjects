@@ -74,7 +74,7 @@ std::string ExampleClass<T>::toString() const noexcept {
 template <typename T>
 void ExampleClass<T>::setRandValues(int min, int max) noexcept {
     for (int i = 0; i < size; i++) {
-        data[i] = min + rand() % (max - min + 1);
+        data[i] = min + rand_r() % (max - min + 1);
     }
 }
 
