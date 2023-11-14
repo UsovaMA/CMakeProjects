@@ -20,7 +20,6 @@ class TList {
 	TNode* tail;
 	int count;
 public:
-	//итераторы
 	TList();
 	TList(T* massData, int size);
 	~TList();
