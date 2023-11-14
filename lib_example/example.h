@@ -7,15 +7,15 @@
 #include <string>
 #include <stdexcept>
 
-/********************************* EXAMPLE OF FUNCTION ****************************/
+/* EXAMPLE OF FUNCTION */
 float division(int a, int b);
-/*****************************************************************************/
+/***********************/
 
 
-/************************* EXAMPLE OF TEMPLATE CLASSES **************************/
+/*EXAMPLE OF TEMPLATE CLASSES*/
 template <typename T> class ExampleClass;
 template <typename T>
-std::ostream& operator<<(std::ostream& out, 
+std::ostream& operator<<(std::ostream& out,
     const ExampleClass<T>& obj) noexcept;
 
 template <typename T>
@@ -80,7 +80,7 @@ void ExampleClass<T>::setRandValues(int min, int max) noexcept {
 }
 
 template <typename T>
-std::ostream& operator<< <T>(std::ostream& out, 
+std::ostream& operator<< <T>(std::ostream& out,
     const ExampleClass<T>& obj) noexcept {
     out << obj.toString();
     return out;
