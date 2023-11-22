@@ -1,14 +1,11 @@
 #include <iostream>
+#include "list.h"
 
 template <class T>
-class TNode {
-	T data;
-	TNode* next;
-public:
-	TNode(const TNode& node) {
-		data = node.data;
-		*next = node->next;
-	}
+TNode<T>::TNode(const TNode& node) {
+	data = node.data;
+	*next = node->next;
+}
 	TNode(T _data, TNode* _next = nullptr) {
 		this->data = _data;
 		this->next = _next;
@@ -27,7 +24,8 @@ public:
 	friend std::ostream& operator<<(std::ostream out, const TNode& node);
 };
 
-std::ostream& operator<<(std::ostream out, const TNode& node) {
+template <class T>
+std::ostream& operator<<(std::ostream out, const TNode<T>& node) {
 	out << "Текущий элемент: " << node.data << std::endl;
 	return out;
 }
@@ -54,6 +52,7 @@ public:
 	~TList() {
 		delete head;
 		delete tail;
+		//nullptr
 	}
 	bool isEmpty();
 
@@ -73,7 +72,7 @@ public:
 	void reset_mass(TNode* from, TNode* to);
 };
 
-bool isEmpty() {
+bool TList<T>::isEmpty() {
 	if (head == nullptr) return true;
 	else return false;
 }

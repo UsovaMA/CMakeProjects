@@ -1,44 +1,47 @@
 #include <iostream>
+#include "stack.h"
 
 template <class T>
-class TStack {
-    size_t size;
-    T* data;
-    size_t _top;
-    TStack(): size(0), data(nullptr), _top(-1) {}
-public:
-    TStack(size_t _size) : size(_size), _top(-1) {
+TStack<T>::TStack(): size(0), data(nullptr), _top(-1) {}
+
+template <class T>
+TStack<T>::TStack(size_t _size) : size(_size), _top(-1) {
         data = new T[size];
     }
-    TStack(const TStack& st): size(st.size), _top(st._top) {
+template <class T>
+TStack<T>::TStack(const TStack& st): size(st.size), _top(st._top) {
         std::copy(data, st.data);
     }
-    ~TStack() {
+template <class T>
+TStack<T>::~TStack() {
         delete[] data;
         data = nullptr;
     }
-
-    bool isFull() {
-        return (size == _top + 1);
+template <class T>
+bool TStack<T>::isFull() {
+    return (size == _top + 1);
+}
+template <class T>
+bool TStack<T>::isEmpty() {
+    return (_top == -1);
+}
+template <class T>
+T& TStack<T>::top() {
+    return data[_top];
+}
+template <class T>
+void TStack<T>::pop() {
+    if (isEmpty()) throw std::logic_error "Stack is empty now";
+    else _top--;
+}
+template <class T>
+void TStack<T>::push(const T& n) {
+    if (isFull()) throw std::logic_error "Stack is full now";
+    else data[++_top] = n;
+}
+template <class T>
+void TStack<T>::print() {
+    for (int i = top; i > -1; i--) {
+        std::cout << i << " " << data[i] << std::endl;
     }
-    bool isEmpty() {
-        return (_top == -1);
-    }
-
-    T& top() {
-        return data[_top];
-    }
-    void pop() {
-        if (isEmpty()) throw std::logic_error "Stack is empty now";
-        else _top--;
-    }
-    void push(const T& n) {
-        if (isFull()) throw std::logic_error "Stack is full now";
-        else data[++_top] = n;
-    }
-    void print() {
-        for (int i = top; i > -1; i--) {
-            std::cout << i << " " << data[i] << std::endl;
-        }
-    }
-};
+}
