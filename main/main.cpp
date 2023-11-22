@@ -1,7 +1,8 @@
 // Copyright 2022 Marina Usova
 
 #include <iostream>
-#include "../lib_example/example.h"
+#include "../lib_disjoint_sets/disjoint_sets.h"
+/*#include "../lib_example/example.h"
 
 int main() {
   int a = 1, b = 4; 
@@ -9,20 +10,20 @@ int main() {
   bool success = false;
 
   try {
-	  result = division(a, b);
-	  success = true;
+      result = division(a, b);
+      success = true;
   } catch (std::exception err) {
-	  std::cerr << err.what() << std::endl;
+      std::cerr << err.what() << std::endl;
   }
   if (success) { printf("%d / %d = %.2f\n", a, b, result); success = false; }
 
   a = 1; b = 0;
 
   try {
-	  result = division(a, b);
-	  success = true;
+      result = division(a, b);
+      success = true;
   } catch (std::exception err) {
-	  std::cerr << err.what() << std::endl;
+      std::cerr << err.what() << std::endl;
   }
   if (success) { printf("%d / %d = %.2f\n", a, b, result); success = false; }
 
@@ -32,3 +33,14 @@ int main() {
 
   return 0;
 }
+*/
+
+int main() {
+    DSU set(7);
+    set._union(1, 3);
+    set._union(2, 6);
+    set._union(3, 4);
+    std::cout << set;
+    return 0;
+}
+
