@@ -10,12 +10,13 @@ include(cmake/function.cmake)    # подхватываем функции, ре
                                  # для простоты мы объединили наборы команд для создания статической библиотеки
 								 # и для создания исполняемого проекта в отдельные функции
 
+add_subdirectory(lib_disjoint_sets)
 add_subdirectory(lib_queue)
 add_subdirectory(lib_stack)
 add_subdirectory(lib_list)
 add_subdirectory(lib_example)    # подключаем дополнительный CMakeLists.txt из подкаталога с именем lib_example
 add_subdirectory(main)           # подключаем дополнительный CMakeLists.txt из подкаталога с именем main
-
+add_subdirectory(labirint)
 option(BTEST "build test?" ON)   # указываем подключаем ли google-тесты (ON или YES) или нет (OFF или NO)
 
 if(BTEST)                        # если тесты подключены

@@ -1,7 +1,8 @@
 // Copyright 2022 Marina Usova
 
 #include <iostream>
-#include "../lib_example/example.h"
+#include "../lib_disjoint_sets/disjoint_sets.h"
+/*#include "../lib_example/example.h"
 
 int main() {
   int a = 1, b = 4; 
@@ -32,3 +33,14 @@ int main() {
 
   return 0;
 }
+*/
+
+int main() {
+    DSU set(7);
+    set._union(1, 3);
+    set._union(2, 6);
+    set._union(3, 4);
+    std::cout << set;
+    return 0;
+}
+
