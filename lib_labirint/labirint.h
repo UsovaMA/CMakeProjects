@@ -8,6 +8,8 @@ class DSU {
     int size;
     int* ranks;
 public:
+    DSU() = default;
+
     explicit DSU(int _size) : size(_size) { 
         data = new int[size + 1];
         ranks = new int[size + 1];
@@ -17,6 +19,10 @@ public:
             data[i] = i;
             ranks[i] = 0;
         }
+    }
+
+    int getParent(int x) {
+        return data[x];
     }
 
     int find(int val) {
@@ -33,7 +39,18 @@ public:
     void union_dsu(int x, int y) {
         int par_x = find(x);
         int par_y = find(y);
+        if (par_x != par_y) { data[par_y] = par_x; }
     }
 };
+
+void Island(int** d, int x, int y) {
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            if (j != y - 1) {
+
+            }
+        }
+    }
+}
 
 #endif  // INCLUDE_DSU_H_
