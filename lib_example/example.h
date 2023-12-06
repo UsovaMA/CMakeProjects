@@ -7,12 +7,12 @@
 #include <string>
 #include <stdexcept>
 
-/********************************* œ–»Ã≈– ‘”Õ ÷»… ****************************/
+/********************************* Primer funk ****************************/
 float division(int a, int b);
 /*****************************************************************************/
 
 
-/************************* œ–»Ã≈– ÿ¿¡ÀŒÕÕ€’  À¿——Œ¬ **************************/
+/************************* Primer shabl class **************************/
 template <typename T> class ExampleClass;
 template <typename T>
 std::ostream& operator<<(std::ostream& out, const ExampleClass<T>& obj) noexcept;
