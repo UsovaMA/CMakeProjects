@@ -4,7 +4,7 @@
 #include "../lib_example/example.h"
 
 int main() {
-  int a = 1, b = 4; 
+  int a = 1, b = 4;
   float result;
   bool success = false;
 
