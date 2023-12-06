@@ -24,7 +24,7 @@ class ExampleClass {
     size_t size;
  public:
     ExampleClass() : data(nullptr), size(0) {}
-    ExampleClass(size_t _size) {
+    explicit ExampleClass(size_t _size) {
         if (_size > INT_MAX || _size <= 0)
             throw std::length_error("Size must be positive value,",
                 "less then MAX_INT.\n");
