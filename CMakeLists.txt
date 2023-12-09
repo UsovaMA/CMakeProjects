@@ -10,6 +10,7 @@ include(cmake/function.cmake)    # подхватываем функции, ре
                                  # для простоты мы объединили наборы команд для создания статической библиотеки
 								 # и для создания исполняемого проекта в отдельные функции
 add_subdirectory(lib_list)
+add_subdirectory(lib_arithmetic)
 add_subdirectory(lib_stack)
 add_subdirectory(lib_algorithms)
 add_subdirectory(lib_labirint)

@@ -9,5 +9,6 @@ float division(int a, int b) {
 }
 
 int main() {
+    system("pause");
     return 0;
 }
