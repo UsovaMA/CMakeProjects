@@ -7,13 +7,19 @@
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-
 	Parser exp;
 	std::cin >> exp;
 	system("cls");
 	std::cout << exp;
 	exp.DeleteSpaces();
 	std::cout << exp;
+	if (exp.CheckBracket() == 1) {
+		std::cout << "м€у";
+	}
+	else {
+		std::cout << "не м€у";
+	}
+
 
 	//bool flag = 0;
 	//while (1) {
