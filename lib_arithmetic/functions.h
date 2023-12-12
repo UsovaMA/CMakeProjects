@@ -105,37 +105,43 @@ public:
 
     bool CheckBracket() {
         Stack<std::string> stack(15);
-        int bracket1 = 0;
-        int bracket2 = 0;
-        int bracket3 = 0;
         for (int i = 0; i < expression.size(); i++) {
             if (expression[i] == '(') {
                 stack.push(std::to_string(expression[i]));
-                bracket1++;
             }
             if (expression[i] == '{') {
                 stack.push(std::to_string(expression[i]));
-                bracket2++;
             }
             if (expression[i] == '[') {
                 stack.push(std::to_string(expression[i]));
-                bracket3++;
             }
             if (expression[i] == ')') {
-                stack.pop();
-                bracket1--;
-            }
-            if (expression[i] == '}') {
-                stack.pop();
-                bracket2--;
+                if (stack.getTop() == std::to_string('(')) {
+                    stack.pop();
+                }
+                else {
+                    return 0;
+                }
             }
             if (expression[i] == ']') {
-                stack.pop();
-                bracket3--;
+                if (stack.getTop() == std::to_string('[')) {
+                    stack.pop();
+                }
+                else {
+                    return 0;
+                }
+            }
+            if (expression[i] == '}') {
+                if (stack.getTop() == std::to_string('{')) {
+                    stack.pop();
+                }
+                else {
+                    return 0;
+                }
             }
 
         }
-        if ((stack.isEmpty() == true) && bracket1 == 0 && bracket2 == 0 && bracket3 == 0) {
+        if ((stack.isEmpty() == true)) {
             return 1;
         }
         else {
