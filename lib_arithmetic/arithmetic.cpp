@@ -15,9 +15,10 @@ int main() {
 	std::cin >> p;
 	p.DeleteSpaces();
 	p.CheckSyntax();
+	p.CheckFunc();
 
 	std::cout << p.CheckSyntax();
-
+	std::cout << p.CheckFunc();
 	system("pause");
 	return 0;
 }

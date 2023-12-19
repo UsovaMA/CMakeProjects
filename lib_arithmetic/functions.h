@@ -33,11 +33,7 @@ class Parser {
     friend class Stack<std::string>;
 	std::string expression;
 public:
-	Parser() {
-		expression = "none";
-	}
-	Parser(std::string _expression) : expression(_expression) {}
-	Parser(const Parser& p) :expression(p.expression) {}
+    explicit Parser(std::string expression_) : expression(expression_) { }
 
 	std::string get_expression() const {
 		return expression;
@@ -108,6 +104,7 @@ public:
         char s;
         int i = 0;
         for (int i = 0; i < expression.length(); i++) {
+            s = expression[i];
             switch (state) {
             case 0:
                 if (i == expression.length() - 1) {
@@ -117,9 +114,11 @@ public:
                     k = k + 1;
                     continue;
                 }
-                else if (lettnum.find(expression[i]) != std::string::npos) {
+                else if (lettnum.find(s) != std::string::npos) {
+                    while (lettnum.find(expression[i]) != std::string::npos) {
+                        continue;
+                    }
                     state = 1;
-                    continue;
                 }
                 else {
                     throw;
@@ -162,6 +161,40 @@ public:
         }
     }
 
+    int CheckFunc() {
+        std::string lett = "qwertyuiopasdfghjklzxcvbnm";
+        std::string nums = "1234567890";
+        std::string tmp = "";
+        int num = 0;
+        for (int i = 0; i < expression.length(); i++) {
+            if (i == expression.length() && num > 1) {
+                throw;
+            }
+            if (lett.find(expression[i]) != std::string::npos) {
+                num++;
+                tmp += expression[i];
+            }
+            else {
+                if (num == 0) { continue; }
+                if (num == 2) {
+                    if (tmp != "ln" && tmp != "tg") {
+                        throw;
+                    }
+                }
+                if (num == 3) {
+                    if (tmp != "sin" && tmp != "cos" && tmp != "ctg" && tmp != "exp") {
+                        throw;
+                    }
+                }
+                if (num > 3) {
+                    throw;
+                }
+                num = 0;
+                tmp = "";
+            }
+        }
+        return 0;
+    }
 };
 
 std::istream& operator>>(std::istream& input, Parser& p) {
@@ -176,9 +209,30 @@ std::ostream& operator<<(std::ostream& out, Parser& p) {
 }
 
 class Expression {
+    friend class Parcer;
     std::string expression;
     std::string poland;
-    variable* var;
+    variable vars[26];
+    size_t count;
+public:
+    explicit Expression(Parser& p) {
+        expression = p.get_expression();
+        poland = "";
+        count = 0;
+        for (int i = 0; i < 26; i++) {
+            vars[i].name = "x";
+            vars[i].value = 0;
+        }
+    }
+
+    void FindVars() {
+        std::string letts = "qwertyuiopasdfghjklzxcvbnm";
+        char c;
+        int count = 0;
+        variable var;
+    }
+
+
 };
 
 #endif FUNCTIONS_FUNCTIONS_H_
