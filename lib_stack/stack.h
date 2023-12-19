@@ -2,12 +2,16 @@
 #define LIB_STACK_STACK_H_
 #include <iostream>
 
-template <typename T>
+template <class T>
 class Stack {
-    int size;
+    size_t size;
     T* data;
-    int top;
+    size_t top;
+
+
 public:
+    Stack() : size(0), data(nullptr), top(-1) { }
+
     Stack(int size_) {
         size = size_;
         top = -1;
@@ -25,49 +29,35 @@ public:
         delete[]data;
         data = nullptr;
     }
-    bool isEmpty();
-    bool isFull();
-    T& getTop();
-    void pop();
-    void push(T elem);
+    bool isEmpty() {
+        return top == -1;
+    }
+    bool isFull() {
+        return size == top + 1;
+    }
+    T& getTop() {
+        return data[top];
+    }
+    void pop() {
+        if (isEmpty()) {
+            throw std::logic_error("Stack is empty!");
+        }
+        top--;
+    }
+    void push(T elem) {
+        if (isFull()) {
+            throw std::logic_error("Stack is full!");
+        }
+        top++;
+        data[top] = elem;
+    }
 
-    void print();
+    void print() {
+        Stack copy(*this);
+        while (!copy.isEmpty()) {
+            std::cout << copy.getTop() << '\n';
+            copy.pop();
+        }
+    }
 };
-template <typename T>
-bool Stack<T>::isEmpty() {
-    return top == -1;
-}
-template <typename T>
-bool Stack<T>::isFull() {
-    return size == top + 1;
-}
-template <typename T>
-T& Stack<T>::getTop() {
-    return data[top];
-}
-template <typename T>
-void Stack<T>::pop() {
-    if (isEmpty()) {
-        throw std::logic_error("Stack is empty!");
-    }
-    top--;
-}
-template <typename T>
-void Stack<T>::push(T elem) {
-    if (isFull()) {
-        throw std::logic_error("Stack is full!");
-    }
-    top++;
-    data[top] = elem;
-}
-
-template <typename T>
-void Stack<T>::print() {
-    Stack copy(*this);
-    while (!copy.isEmpty()) {
-        std::cout << copy.getTop() << '\n';
-        copy.pop();
-    }
-}
-
 #endif  // LIB_STACK_STACK_H_
