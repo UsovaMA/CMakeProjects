@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include "../lib_example/example.h"
+#include "../lib_algorithms/Algorithms.h"
+#include "../lib_list/list.h"
+#include "../lib_stack/stack.h"
 
 int main() {
   int a = 1, b = 4; 
@@ -29,6 +32,5 @@ int main() {
   ExampleClass<int> obj(10);
   obj.setRandValues(-50, 30);
   std::cout << obj << std::endl;
-
   return 0;
 }
