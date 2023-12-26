@@ -1,8 +1,8 @@
 ﻿# указывайте последнюю доступную вам версию CMake
-cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.27 FATAL_ERROR)
 
 # название проекта
-project(ProgrammingLabsWork_2022_2023)
+project(CmakeTask)
 
 # затем следует список инструкций для подключения проектов из подкаталогов
 

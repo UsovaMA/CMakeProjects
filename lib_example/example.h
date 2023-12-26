@@ -15,7 +15,8 @@ float division(int a, int b);
 /************************* опхлеп ьюакнммшу йкюяянб **************************/
 template <typename T> class ExampleClass;
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const ExampleClass<T>& obj) noexcept;
+std::ostream& operator<<(std::ostream& out, 
+                            const ExampleClass<T>& obj) noexcept;
 
 template <typename T>
 class ExampleClass {
@@ -24,7 +25,8 @@ class ExampleClass {
 public:
     ExampleClass() : data(nullptr), size(0) {}
     ExampleClass(size_t _size) {
-        if (_size > INT_MAX || _size <= 0) throw std::length_error("Size must be positive value, less then MAX_INT.\n");
+        if (_size > INT_MAX || _size <= 0) 
+            throw std::length_error("Size must be positive value, less then MAX_INT.\n");
         size = _size;
         data = new T[size];
     }
